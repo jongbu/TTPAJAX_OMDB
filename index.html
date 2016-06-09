@@ -17,26 +17,26 @@
     </div>
   </div>
 </nav>
-<div class="container" style="padding-top:4%;">
+<div id="wrapper">
+<div class="container">
   <div class="jumbotron">
 	<form id="search" align="center" class="form-inline" role="form">
   <div class="form-group">
   <label>Search Movies: </label>
-    <input id="t" type="text" name="t" class="form-control" placeholder="Enter Name" onkeyup="searchMovie()">
+    <input id="s" type="text" name="s" class="form-control" placeholder="Enter Name" onkeyup="searchMovie()">
   </div>
   <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-
 </form>
 	</div>
 	</div>
-	<h3 align="center"><span class="label label-default">Suggestions</span></h3>
-	<div id="suggestions" class="well"></div>
+	<div id="suggestions" class="alert alert-info"></div>
 	<hr>
 	<div class="panel panel-primary">
       <div class="panel-heading">Results</div>
       <div class="panel-body">
 	<div id="images" style="padding-top:4%;" align="center"></div>
 	</div>
-    </div>
+	</div>
+</div>
 </body>
 </html>
