@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $("#search").on("submit",function(e){
     e.preventDefault();
-    document.getElementById("images").innerHTML="";
+    clear();
     var formData = {
       's': $('input[name=s]').val(),
       'type': $("input:radio[name='type']:checked").val()
@@ -13,14 +13,17 @@ $(document).ready(function(){
       success: function(response) { 
 
       for(i=0;i<response.Search.length;i++){
-          imdb_id=response.Search[i].imdbID;
-          imdb = "http://www.imdb.com/title/"+imdb_id+"/";
-            document.getElementById("images").innerHTML+=
-            "<div class=\"alert alert-success\"><strong>"+response.Search[i].Title+
-            "</strong><br><strong>Year: "+response.Search[i].Year
-            +"</strong><br><strong>Released: "+response.Search[i].Released+"</strong><br>" +
-              "<label onclick='openMore(imdb)' style='cursor:pointer'>SEE MORE</label><br><img src=\""
-            +response.Search[i].Poster+"\" class=\"img-rounded\" alt=\"Cinque Terre\"></div>";
+        imdb = "http://www.imdb.com/title/"+response.Search[i].imdbID+"/";
+        title = response.Search[i].Title;
+        year = response.Search[i].Year;
+        released = response.Search[i].Released;
+        poster = response.Search[i].Poster;
+          document.getElementById("images").innerHTML+=
+          "<div class=\"alert alert-success\"><strong>"+title+
+          "</strong><br><strong>Year: "+year
+          +"</strong><br><strong>Released: "+released+"</strong><br>" +
+            "<label onclick='openMore(imdb)' style='cursor:pointer'>SEE MORE</label><br><img src=\""
+          +poster+"\" class=\"img-rounded\" alt=\"Cinque Terre\"></div>";
       }
       } 
 
@@ -28,7 +31,7 @@ $(document).ready(function(){
   });
 });
 
-function searchMovie(){
+function showSuggestions(){
   document.getElementById("suggestions").innerHTML="";
     var formData = {
       's': $('input[name=s]').val(),
@@ -53,4 +56,7 @@ function openMore(imdb) {
 }
 function selectText(currID){
   document.getElementById("s").value=document.getElementById(currID).innerHTML;
+}
+function clear(){
+  document.getElementById("images").innerHTML="";
 }
