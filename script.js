@@ -17,9 +17,10 @@ $(document).ready(function(){
             "<div class=\"alert alert-success\"><strong>"+response.Search[i].Title+
             "</strong><br><strong>Year: "+response.Search[i].Year
             +"</strong><br><strong>Imdb Id: "+response.Search[i].imdbID
+            +"</strong><br><strong>Imdb Rating: "+response.Search[i].imdbRating
             +"</strong><br><strong>Released: "+response.Search[i].Released+"</strong><br><img src=\""
             +response.Search[i].Poster+"\" class=\"img-rounded\" alt=\"Cinque Terre\"></div>";
-        console.log(response.Search[i]);   
+        console.log(response.Search[i]); 
       }
       } 
     
@@ -29,7 +30,6 @@ $(document).ready(function(){
 
 function searchMovie(){
   document.getElementById("suggestions").innerHTML="";
-  var x = document.getElementById("s");
     var formData = {
       's': $('input[name=s]').val(),
       'type': 'movie'
