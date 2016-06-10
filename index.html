@@ -13,8 +13,13 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <h4 style="color:white" >MashUp Movie Search</h4>
+      <a class="navbar-brand" href="#">Mash Movies</a>
     </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="developers.html">Developers</a></li>
+    </ul>
   </div>
 </nav>
 <div id="wrapper">
@@ -23,20 +28,20 @@
 	<form id="search" align="center" class="form-inline" role="form">
   <div class="form-group">
   <label>Search Movies: </label>
-    <input id="s" type="text" size="100" name="s" class="form-control" placeholder="Enter Name" onkeyup="searchMovie()">
+      <input id="s" type="text" size="100" name="s" class="form-control" placeholder="Enter Name" onkeyup="searchMovie()"><br>
+      <input type="radio" name="type" value="movie" id="movie" checked> Movie
+      <input type="radio" name="type" value="series" id="series"> Series
+      <input type="radio" name="type" value="episode" id="episode"> Episode
   </div>
   <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 </form>
 	</div>
 	</div>
-	<div id="suggestions" class="alert alert-info"></div>
+  <div class="alert alert-info" id="suggestions">
+  </div>
 	<hr>
-	<div class="panel panel-primary">
-      <div class="panel-heading">Results</div>
-      <div class="panel-body">
-	<div id="images" align="center"></div>
-	</div>
-	</div>
+	<div id="images">
+  </div>
 </div>
 </body>
 </html>
