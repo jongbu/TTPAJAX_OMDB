@@ -31,19 +31,21 @@ $(document).ready(function(){
 });
 
 function searchMovie(){
+  document.getElementById("suggestions").innerHTML="";
   var x = document.getElementById("s");
     var formData = {
-      's': $('input[name=s]').val()
+      's': $('input[name=s]').val(),
+      'type': 'movie'
     };
     $.ajax({   
       url: "http://www.omdbapi.com/?",   
       data: formData,   
       dataType: "json",   
       success: function(response) { 
-      var artistArray= response.Poster; 
-            document.getElementById("suggestions").innerHTML="";
-            if(response.Poster)
-              document.getElementById("suggestions").innerHTML+="<p>"+response.Title+"</p>";
+      for(i=0;i<response.Search.length;i++){
+            document.getElementById("suggestions").innerHTML+=
+            "<button type=\"button\" class=\"btn btn-default\" id=\""+response.Search[i].imdbID+"\" onClick=\"selectText(this.id)\">"+response.Search[i].Title+"</button>";
+      }
       } 
     
     });
@@ -51,4 +53,7 @@ function searchMovie(){
 
 function openTrailer() {
   alert("Trailer");
+}
+function selectText(currID){
+  document.getElementById("s").value=document.getElementById(currID).innerHTML;
 }
