@@ -23,7 +23,10 @@
 	<form id="search" align="center" class="form-inline" role="form">
   <div class="form-group">
   <label>Search Movies: </label>
-    <input id="s" type="text" size="100" name="s" class="form-control" placeholder="Enter Name" onkeyup="searchMovie()">
+      <input id="s" type="text" size="100" name="s" class="form-control" placeholder="Enter Name" onkeyup="searchMovie()"><br>
+      <input type="radio" name="type" value="movie" id="movie" checked> Movie
+      <input type="radio" name="type" value="series" id="series"> Series
+      <input type="radio" name="type" value="episode" id="episode"> Episode
   </div>
   <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 </form>

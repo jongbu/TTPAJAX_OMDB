@@ -4,7 +4,7 @@ $(document).ready(function(){
     document.getElementById("images").innerHTML="";
     var formData = {
       's': $('input[name=s]').val(),
-      'type': 'movie'
+      'type': $("input:radio[name='type']:checked").val()
     };
     $.ajax({   
       url: "http://www.omdbapi.com/?",   
@@ -15,14 +15,12 @@ $(document).ready(function(){
       for(i=0;i<response.Search.length;i++){
           imdb_id=response.Search[i].imdbID;
           imdb = "http://www.imdb.com/title/"+imdb_id+"/";
-          console.log(imdb);
             document.getElementById("images").innerHTML+=
             "<div class=\"alert alert-success\"><strong>"+response.Search[i].Title+
             "</strong><br><strong>Year: "+response.Search[i].Year
             +"</strong><br><strong>Released: "+response.Search[i].Released+"</strong><br>" +
-              "<label onclick='imdb' style='cursor:pointer'>SEE TRAILER</label><br><img src=\""
+              "<label onclick='openMore(imdb)' style='cursor:pointer'>SEE MORE</label><br><img src=\""
             +response.Search[i].Poster+"\" class=\"img-rounded\" alt=\"Cinque Terre\"></div>";
-        console.log(response.Search[i]);   
       }
       } 
 
@@ -32,10 +30,9 @@ $(document).ready(function(){
 
 function searchMovie(){
   document.getElementById("suggestions").innerHTML="";
-  var x = document.getElementById("s");
     var formData = {
       's': $('input[name=s]').val(),
-      'type': 'movie'
+      'type': $("input:radio[name='type']:checked").val()
     };
     $.ajax({   
       url: "http://www.omdbapi.com/?",   
@@ -51,8 +48,8 @@ function searchMovie(){
     });
 }
 
-function openTrailer() {
-  alert("Trailer");
+function openMore(imdb) {
+  open(imdb);
 }
 function selectText(currID){
   document.getElementById("s").value=document.getElementById(currID).innerHTML;
