@@ -10,13 +10,22 @@
 	<script src="script.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse" style="position: fixed; width: 100%;">
-  <div class="container-fluid" >
-    <div class="navbar-header" >
-      <h4 style="color:white" >MashUp Movie Search</h4>
+<nav class="navbar navbar-inverse" id="navbar" style="position: fixed; width: 100%;
+@media all {
+    position: relative;
+}">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Mash Movies</a>
     </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="developers.html">Developers</a></li>
+    </ul>
   </div>
 </nav>
+<br>
 <div id="wrapper">
 <div class="container">
   <div class="jumbotron">
@@ -28,18 +37,15 @@
       <input type="radio" name="type" value="series" id="series"> Series
       <input type="radio" name="type" value="episode" id="episode"> Episode
   </div>
-  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+  <button type="submit" id="search_button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 </form>
 	</div>
 	</div>
-	<div id="suggestions" class="alert alert-info"></div>
+  <div class="alert alert-info" id="suggestions">
+  </div>
 	<hr>
-	<div class="panel panel-primary" style="border-color: black">
-      <div class="panel-heading" style="background-color: #222222; border-color: black">Results</div>
-      <div class="panel-body">
-	<div id="images" style="padding-top:4%;" align="center"></div>
-	</div>
-	</div>
+	<div id="images">
+  </div>
 </div>
 </body>
 </html>
